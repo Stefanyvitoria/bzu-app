@@ -4,6 +4,7 @@ import Navbar from './components/navbar/navbar.js';
 import HomePage from './components/pages/home.js';
 import NovoPage from './components/pages/novo.js';
 import AlterarPage from './components/pages/alterar';
+import RemoverPage from './components/pages/remover';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <HomePage pageState={pageState} />
         <NovoPage pageState={pageState} />
         <AlterarPage pageState={pageState} />
+        <RemoverPage pageState={pageState} />
       </div>
     </div>
   );

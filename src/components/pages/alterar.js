@@ -21,7 +21,7 @@ export default function AlterarPage({pageState}) {
           </div> 
         </div>
         <div className='alterar-content-footer'>
-          <button onClick={null} id='alterar-cadastrar'>
+          <button onClick={null} id='alterar-confirm'>
             ALTERAR
           </button>
           <button onClick={() => window.history.back()} id='alterar-voltar'>

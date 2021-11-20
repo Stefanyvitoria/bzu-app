@@ -19,7 +19,7 @@ export default function NovoPage({pageState}) {
           </div> 
         </div>
         <div className='novo-content-footer'>
-          <button onClick={null} id='novo-cadastrar'>
+          <button onClick={null} id='novo-confirm'>
             CADASTRAR
           </button>
           <button onClick={() => window.history.back()} id='novo-voltar'>
