@@ -5,7 +5,6 @@ import HomePage from './components/pages/home.js';
 import NovoPage from './components/pages/novo.js';
 import AlterarPage from './components/pages/alterar';
 import RemoverPage from './components/pages/remover';
-
 function App() {
 
   const [pageState, setPageState] = React.useState(window.location.hash);
@@ -22,6 +21,7 @@ function App() {
         <NovoPage pageState={pageState} />
         <AlterarPage pageState={pageState} />
         <RemoverPage pageState={pageState} />
+        
       </div>
     </div>
   );

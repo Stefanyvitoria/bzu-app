@@ -1,23 +1,38 @@
 .home-header{
     padding: 15px 10px;
-    max-width: max-content;
+    max-width: 100%;
+    
+}
+
+#home {
+    max-width: 100%;
+    background: rgb(247,247,247);
 }
 
 .home-content{
     padding: 15px;
     margin-top: 5px;
     margin-left: 10px;
+    margin-right: 10px;
     background: white;
     border-style: solid;
     border-color: rgb(240, 240, 240);
     border-width: 2px;
-    box-shadow: red;
-    max-width: max-content;
 }
 
-.home-content-body{
-    max-width: 1000px;
+.home-content-body {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 15px;
 }
+
+@media only screen and (max-width: 1050px) {
+    .home-content-body {
+        grid-template-columns: 1fr;
+        column-gap: 0px;
+    }
+}
+
 
 .home-table-header{
     color: black;
@@ -33,7 +48,11 @@
     }
 }
 
+
+
 .home-table-content{
   padding: 15px;
   border: 1px rgb(223, 223, 223) solid;
 }
+
+

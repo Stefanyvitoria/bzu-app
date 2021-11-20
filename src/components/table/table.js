@@ -17,7 +17,7 @@ export default function TableAluno({alunos=[]}) {
                 </tr>
             </thead>
             
-            <tbody>
+            <tbody className='table-body'>
                 {alunos.map(aluno => {
                     return (
                         <tr key={aluno[0]} className='table-row'>
