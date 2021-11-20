@@ -12,7 +12,7 @@
     column-gap: 7px;
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 400px) {
 	.table-row {
 		font-size: small;
         column-gap: 5px;

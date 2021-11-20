@@ -1,0 +1,39 @@
+.home-header{
+    padding: 15px 10px;
+    max-width: max-content;
+}
+
+.home-content{
+    padding: 15px;
+    margin-top: 5px;
+    margin-left: 10px;
+    background: white;
+    border-style: solid;
+    border-color: rgb(240, 240, 240);
+    border-width: 2px;
+    box-shadow: red;
+    max-width: max-content;
+}
+
+.content-body{
+    max-width: 1000px;
+}
+
+.table-header{
+    color: black;
+    background: rgb(0,122,255);
+    padding: 20px;
+    border-radius: 7px 7px 0px 0px;
+}
+
+@media only screen and (max-width: 400px) {
+	.table-header{
+        font-size: small;
+        padding: 13px;
+    }
+}
+
+.table-content{
+  padding: 15px;
+  border: 1px rgb(223, 223, 223) solid;
+}

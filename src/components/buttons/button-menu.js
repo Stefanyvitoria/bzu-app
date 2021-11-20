@@ -1,18 +1,14 @@
 import React from "react";
 import './button-menu.css';
 
-export default function ButtonMenu({text}) {
-
-    function buttonclick() {
-        console.log('click');
-        return;
-    }
+export default function ButtonMenu({text, href="#"}) {
 
     return (
-        <button 
+        <a 
             className="button-menu"
-            onClick={buttonclick}>
+            href={href}
+            >
             {text}
-        </button>
+        </a>
     );
 }
