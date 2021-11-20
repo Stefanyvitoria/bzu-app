@@ -3,16 +3,16 @@ import './button-action.css';
 
 export function ButtonActionAlterar() {
     return (
-        <button className='button-alterar'>
+        <a href='#alteraraluno' className='button-alterar'>
             ALTERAR
-        </button>
+        </a>
     );
 }
 
 export function ButtonActionRemover() {
     return (
-        <button className='button-remover'>
+        <a href='#removeraluno' className='button-remover'>
             REMOVER
-        </button>
+        </a>
     );
 }

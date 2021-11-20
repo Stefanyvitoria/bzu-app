@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/navbar/navbar.js';
 import HomePage from './components/pages/home.js';
 import NovoPage from './components/pages/novo.js';
+import AlterarPage from './components/pages/alterar';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <div className='app-body'>
         <HomePage pageState={pageState} />
         <NovoPage pageState={pageState} />
+        <AlterarPage pageState={pageState} />
       </div>
     </div>
   );

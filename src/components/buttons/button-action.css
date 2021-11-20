@@ -1,6 +1,7 @@
 .button-alterar{
     background: rgb(253,192,4);
     border: 1px rgb(253,192,4) solid;
+    color: black;
 }
 
 .button-remover{
@@ -10,13 +11,15 @@
 }
 
 .button-alterar, .button-remover {
-    padding: 11px;
+    padding: 10px;
     border-radius: 5px;
+    text-decoration: none;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
 	.button-alterar, .button-remover {
         font-size: x-small;
-        padding: 8px;
+        padding: 7px;
+        display: block;
     }
 }
