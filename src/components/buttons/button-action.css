@@ -1,0 +1,22 @@
+.button-alterar{
+    background: rgb(253,192,4);
+    border: 1px rgb(253,192,4) solid;
+}
+
+.button-remover{
+    background: rgb(220,54,71);
+    border: 1px rgb(220,54,71) solid;
+    color: white;
+}
+
+.button-alterar, .button-remover {
+    padding: 11px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 380px) {
+	.button-alterar, .button-remover {
+        font-size: x-small;
+        padding: 8px;
+    }
+}
