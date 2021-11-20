@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/navbar/navbar.js';
 import HomePage from './components/pages/home.js';
+import NovoPage from './components/pages/novo.js';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Navbar text="Aluno"/>
       <div className='app-body'>
         <HomePage pageState={pageState} />
+        <NovoPage pageState={pageState} />
       </div>
     </div>
   );

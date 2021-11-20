@@ -11,11 +11,11 @@ export default function HomePage({pageState}) {
           <ButtonMenu text="Gráfico"/>
         </header>
         <div className='home-content'>
-          <div className='content-body'>
-            <div className='table-header'>
+          <div className='home-content-body'>
+            <div className='home-table-header'>
               ALUNOS CADASTRADOS
             </div>
-            <div className='table-content'>
+            <div className='home-table-content'>
               <TableAluno alunos={[
                 ["1","Melo","12345678901","10"], 
                 ["2","Ste","11115689610","9"],
