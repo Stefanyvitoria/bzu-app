@@ -1,9 +1,9 @@
 import React from "react";
 import './button-action.css';
 
-export function ButtonActionAlterar() {
+export function ButtonActionAlterar({aluno}) {
     return (
-        <a href='#alteraraluno' className='button-alterar'>
+        <a href={"#alteraraluno="+aluno[0]} className='button-alterar'>
             ALTERAR
         </a>
     );

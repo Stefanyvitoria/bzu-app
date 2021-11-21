@@ -3,8 +3,8 @@ import './table.css';
 import {ButtonActionAlterar, ButtonActionRemover} from "../buttons/button-action"; 
 
 export default function TableAluno({alunos=[]}) {
-    // const alunos = [["1","Melo","12345678901","10"], ["2","Ste","11115689610","9"]];
-    
+    var key = 0;
+
     return (
         <table className='table'>
             <thead>
@@ -19,15 +19,17 @@ export default function TableAluno({alunos=[]}) {
             
             <tbody className='table-body'>
                 {alunos.map(aluno => {
+                    key+=1
+                    
                     return (
-                        <tr key={aluno[0]} className='table-row'>
+                        <tr key={key} className='table-row'>
                             <td>{aluno[0]}</td>
                             <td>{aluno[1]}</td>
                             <td>{aluno[2]}</td>
                             <td>{aluno[3]}</td>
                             <td>
-                                <ButtonActionAlterar text='ALTERAR' />
-                                <ButtonActionRemover text='REMOVER' />
+                                <ButtonActionAlterar aluno={aluno}/>
+                                <ButtonActionRemover />
                             </td>
                         </tr>
                     );
