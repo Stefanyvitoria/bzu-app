@@ -10,7 +10,8 @@
 
 # production
 /build
-
+/front
+/beck
 # misc
 .DS_Store
 .env.local
