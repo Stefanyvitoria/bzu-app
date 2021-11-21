@@ -26,6 +26,10 @@
     border: 2px rgba(223, 223, 223, 0.473) solid;
 }
 
+#novo-nome:invalid, #novo-cpf:invalid, #novo-avaliacao:invalid {
+    border: 2px solid red;
+}
+
 @media only screen and (max-width: 600px) {
     .novo-content{
         width: 90%;

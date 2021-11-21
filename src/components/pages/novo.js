@@ -12,37 +12,89 @@ function maxIndexPlus1(alunos) {
   return Number(max) + 1;
 }
 
+function searcCPF(alunos, cpf) {
+  let aluno = null;
+  for (var i=0; i<alunos.length;i++ ){
+    aluno = alunos[i];
+    if(cpf === aluno[2]) {
+      return false;
+    }
+  }
+  return true;
+}
+
 export default function NovoPage({pageState, alunos, setAlunos}) {
 
   window.addEventListener('hashchange', function(h) {
     if (h.newURL.indexOf('#novoaluno') !== -1) {
-      let nome = document.querySelector("#novo-nome");
-      let cpf = document.querySelector("#novo-cpf");
-      let avaliacao = document.querySelector("#novo-avaliacao");
-      nome.value = '';
-      cpf.value = '';
-      avaliacao.value = '';
-      setAluno(["", "", "", ""]);
+      var nome = document.querySelector("#novo-nome");
+      var cpf = document.querySelector("#novo-cpf");
+      var avaliacao = document.querySelector("#novo-avaliacao");
+      nome.value = ' ';
+      cpf.value = ' ';
+      avaliacao.value = ' ';
+      nome.setCustomValidity('');
+      cpf.setCustomValidity('');
+      avaliacao.setCustomValidity('');
     }
   });
 
-  const [aluno, setAluno] = React.useState(["", "", "", ""]);
-
-  function changeAluno(value, i) {
-    if (i===1) {
-      setAluno([aluno[0], value, aluno[2], aluno[3]]);
-    } else if(i===2) {
-      setAluno([aluno[0], aluno[1], value,  aluno[3]]);
-    }else if(i===3) {
-      setAluno([aluno[0], aluno[1], aluno[2], value]);
-    }
-  }
-
   function novoClick() {
-    var a = [maxIndexPlus1(alunos), aluno[1], aluno[2], aluno[3]];
+    // validação dos requesitos
+    var nome = document.querySelector("#novo-nome");
+    var cpf = document.querySelector("#novo-cpf");
+    var avaliacao = document.querySelector("#novo-avaliacao");
+
+    var nomesemespaco = nome.value.replace(" ", "")
+    while (nomesemespaco.indexOf(" ") !== -1) {
+      nomesemespaco = nomesemespaco.replace(" ", "")
+    }
+
+    if (!nomesemespaco.match(/^[a-z0-9]+$/i) || nome.value.length < 6 || nome.value.length > 40) {
+      nome.setCustomValidity('invalid');
+      window.alert("Campo inválido! \nO Nome deve ter antre 6 e 40 caracteres e não pode conter símbolos.")
+      console.log(nome.value.match(/^[a-z0-9]+$/i))
+      return;
+    } else {
+      nome.setCustomValidity('');
+    }
+
+    if (!cpf.value.match(/(\d{3})(.)(\d{3})(.)(\d{3})(-)(\d{2})/)) {
+      cpf.setCustomValidity('invalid');
+      window.alert("Campo inválido! \nO CPF deve ter 11 caracteres e conter somente números.")
+      return;
+    } else if (!searcCPF(alunos,cpf.value)) {
+      cpf.setCustomValidity('invalid');
+      window.alert("Campo inválido! \nO CPF é inválido.")
+      return;
+    } else {
+      cpf.setCustomValidity('');
+    }
+
+    avaliacao.value = avaliacao.value.replace(" ", "")
+    if (!avaliacao.value.match(/^[0-9]+$/) || avaliacao.value > 10 || avaliacao.value < 0) {
+      avaliacao.setCustomValidity('invalid');
+      window.alert("Campo inválido! \n A Avaliacao deve conter somente números e estar entre 0 e 10.")
+      return;
+    } else {
+      avaliacao.setCustomValidity('');
+    }
+    
+    var a = [maxIndexPlus1(alunos), nome.value, cpf.value, avaliacao.value];
     setAlunos([...alunos, a])
-    window.history.back()    
+    window.history.back()
+        
   }
+
+  function mascara() {
+    const tamanhoInput = document.getElementById('novo-cpf').maxLength;
+    let valorInput = document.getElementById('novo-cpf').value;
+
+    let valorSemPonto = document.getElementById('novo-cpf').value.replace(/([^0-9])+/g, "");
+    const mascaracpf = valorInput.replace(/[^\d]/g, "").replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    valorInput.length === tamanhoInput ? document.getElementById('novo-cpf').value = mascaracpf : document.getElementById('novo-cpf').value = valorSemPonto;
+  
+  };
 
   return (
     <div className='novo-content' id='novoaluno' hidden={pageState !== '#novoaluno'? true : false }>
@@ -50,13 +102,17 @@ export default function NovoPage({pageState, alunos, setAlunos}) {
         CADASTRAR ALUNO
       </header>
       <div className='novo-content-body'>
-        <p>Nome</p>
-        <input id='novo-nome' value={aluno[1]} onChange={e => changeAluno(e.target.value, 1)}/>
+        <p>Nome:*</p>
+        <input id='novo-nome' 
+          required={true}/>
         <div id ='t'>
-          <p>CPF:</p>
-          <p>Avaliação:</p>
-          <input id='novo-cpf' value={aluno[2]} onChange={e => changeAluno(e.target.value, 2)}/>
-          <input id='novo-avaliacao' value={aluno[3]} onChange={e => changeAluno(e.target.value, 3)}/>
+          <p>CPF:*</p>
+          <p>Avaliação:*</p>
+          <input id='novo-cpf' 
+            maxLength={11} 
+            onInput={mascara}/>
+          <input id='novo-avaliacao'
+            required={true}/>
         </div> 
       </div>
       <div className='novo-content-footer'>
@@ -68,5 +124,6 @@ export default function NovoPage({pageState, alunos, setAlunos}) {
         </button>
       </div>
     </div>
+    
   );
 }
