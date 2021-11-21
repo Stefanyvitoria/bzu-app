@@ -1,17 +1,17 @@
 import React from "react";
 import './button-action.css';
 
-export function ButtonActionAlterar({aluno}) {
+export function ButtonActionAlterar({matricula}) {
     return (
-        <a href={"#alteraraluno="+aluno[0]} className='button-alterar'>
+        <a href={"#alteraraluno="+matricula} className='button-alterar'>
             ALTERAR
         </a>
     );
 }
 
-export function ButtonActionRemover() {
+export function ButtonActionRemover({matricula}) {
     return (
-        <a href='#removeraluno' className='button-remover'>
+        <a href={'#removeraluno='+matricula} className='button-remover'>
             REMOVER
         </a>
     );

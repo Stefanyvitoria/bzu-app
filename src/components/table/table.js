@@ -28,8 +28,8 @@ export default function TableAluno({alunos=[]}) {
                             <td>{aluno[2]}</td>
                             <td>{aluno[3]}</td>
                             <td>
-                                <ButtonActionAlterar aluno={aluno}/>
-                                <ButtonActionRemover />
+                                <ButtonActionAlterar matricula={aluno[0]}/>
+                                <ButtonActionRemover matricula={aluno[0]}/>
                             </td>
                         </tr>
                     );

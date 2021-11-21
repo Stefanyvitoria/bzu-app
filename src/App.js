@@ -30,9 +30,9 @@ function App() {
       <Navbar text="Aluno"/>
       <div className='app-body'>
         <HomePage pageState={pageState} alunos={alunos} setAlunos={setAlunos}/>
-        <NovoPage pageState={pageState}/>
+        <NovoPage pageState={pageState} alunos={alunos} setAlunos={setAlunos}/>
         <AlterarPage pageState={pageState} alunos={alunos} setAlunos={setAlunos}/>
-        <RemoverPage pageState={pageState} />
+        <RemoverPage pageState={pageState} alunos={alunos} setAlunos={setAlunos} />
         
       </div>
     </div>

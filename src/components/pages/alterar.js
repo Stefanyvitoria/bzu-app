@@ -9,7 +9,6 @@ function searchAluno(alunos) {
         break
       }  
     }
-
     return alun;
 }
 
@@ -23,7 +22,7 @@ export default function AlterarPage({pageState, alunos=[], setAlunos}) {
 
   const [aluno, setAluno] = React.useState(searchAluno(alunos));
 
-  function changeAlunoNome(value, i) {
+  function changeAluno(value, i) {
     if (i===1) {
       setAluno([aluno[0], value, aluno[2], aluno[3]]);
     } else if(i===2) {
@@ -50,12 +49,12 @@ export default function AlterarPage({pageState, alunos=[], setAlunos}) {
         <p>Matricula</p>
         <input id='alterar-matricula' type='text' disabled={true} value={aluno[0]}/>
         <p>Nome</p>
-        <input id='alterar-nome' value={aluno[1]} onChange={e => changeAlunoNome(e.target.value, 1)}/>
+        <input id='alterar-nome' value={aluno[1]} onChange={e => changeAluno(e.target.value, 1)}/>
         <div id ='t'>
           <p>CPF:</p>
           <p>Avaliação:</p>
-          <input id='alterar-cpf' value={aluno[2]} onChange={e => changeAlunoNome(e.target.value, 2)} />
-          <input id='alterar-avaliacao' value={aluno[3]} onChange={e => changeAlunoNome(e.target.value, 3)} />
+          <input id='alterar-cpf' value={aluno[2]} onChange={e => changeAluno(e.target.value, 2)} />
+          <input id='alterar-avaliacao' value={aluno[3]} onChange={e => changeAluno(e.target.value, 3)} />
         </div>
       </div>
       <div className='alterar-content-footer'>
