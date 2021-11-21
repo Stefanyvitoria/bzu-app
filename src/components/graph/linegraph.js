@@ -2,17 +2,17 @@ import React from "react";
 import {Line} from "react-chartjs-2";
 import './linegraph.css';
 
-export default function LineGraph() {
+export default function LineGraph({alunos}) {
 
     const data = {
-        labels: ['1', '2', '3', '4', '5'],
+        labels: alunos.map((aluno) =>aluno[1]),
         datasets: [
             {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2],
+            label: 'Resultado do semestre',
+            data: alunos.map((aluno => aluno[3])),
             fill: false,
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgba(255, 99, 132, 0.2)',
+            backgroundColor: 'rgb(0,122,255)',
+            borderColor: 'rgb(0,122,255)',
             },
         ],
     };
