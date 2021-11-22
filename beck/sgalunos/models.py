@@ -6,7 +6,7 @@ import uuid
 class Aluno(models.Model):
     matricula = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100, null=False)
-    cpf = models.CharField(max_length=11, unique=True, null=False)
+    cpf = models.CharField(max_length=14, unique=True, null=False)
     avaliacao = models.IntegerField(null=False)
 
     def __str__(self):

@@ -1,5 +1,6 @@
 import React from "react";
 import './novo.css';
+import api from '../../services/api.js'
 
 function maxIndexPlus1(alunos) {
   let max = 0;
@@ -23,7 +24,7 @@ function searcCPF(alunos, cpf) {
   return true;
 }
 
-export default function NovoPage({pageState, alunos, setAlunos}) {
+export default function NovoPage({pageState, alunos, setAlunos, x}) {
 
   window.addEventListener('hashchange', function(h) {
     if (h.newURL.indexOf('#novoaluno') !== -1) {
@@ -39,7 +40,7 @@ export default function NovoPage({pageState, alunos, setAlunos}) {
     }
   });
 
-  function novoClick() {
+  async function novoClick() {
     // validação dos requesitos
     var nome = document.querySelector("#novo-nome");
     var cpf = document.querySelector("#novo-cpf");
@@ -79,9 +80,9 @@ export default function NovoPage({pageState, alunos, setAlunos}) {
     } else {
       avaliacao.setCustomValidity('');
     }
-    
-    var a = [maxIndexPlus1(alunos), nome.value, cpf.value, avaliacao.value];
-    setAlunos([...alunos, a])
+
+    var json = {nome : nome.value, cpf: cpf.value, avaliacao: avaliacao.value}
+    await api.post('incluiraluno/', json )
     window.history.back()
         
   }

@@ -2,7 +2,7 @@ import React from "react";
 import {Bar} from "react-chartjs-2";
 import './bargraph.css';
 
-export default function BarGraph({alunos}) {
+export default function BarGraph({alunos=[]}) {
     const data = {
         labels: alunos.map((aluno) =>aluno[1]),
         datasets: [
