@@ -19,7 +19,7 @@ from rest_framework import routers
 from sgalunos.api import viewsets as alunoviewsets
 
 route = routers.DefaultRouter()
-route.register("aluno", alunoviewsets.SGAlunosViewSet, basename='Aluno')
+route.register("sga/incluiraluno", alunoviewsets.SGAlunosViewSet, basename='incluiraluno')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

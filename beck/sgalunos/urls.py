@@ -1,11 +1,13 @@
 from django.urls import path
 from . import views
 
-from sgalunos.api.viewsets import SGAlunosViewSet
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('alunos', views.alunos, name='alunos'),
-    path('aluno/<int:matricula>', views.getAluno, name='aluno'),
-    
+    path('consultaravaliacoes', views.consultarAvaliacoes, name='consultaravaliacoes'),
+    path('alteraraluno/<int:matricula>', views.alterarAluno, name='alteraraluno'),
+    path('deletaraluno/<int:matricula>', views.deletarAluno, name='deletaraluno'),
+    path('consultaraluno/<int:matricula>', views.consultarAluno, name='consultaraluno'),
+
 ]
