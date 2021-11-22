@@ -1,5 +1,6 @@
 import React from "react";
 import './alterar.css';
+import api from '../../services/api.js'
 
 function searchAluno(alunos) {
   let matricula = window.location.hash.split("=")[1];
@@ -37,7 +38,7 @@ export default function AlterarPage({pageState, alunos=[], setAlunos}) {
     }
   }
 
-  function alterarClick() {
+  async function alterarClick() {
 
     var nome = document.querySelector("#alterar-nome");
     var cpf = document.querySelector("#alterar-cpf");
@@ -74,11 +75,9 @@ export default function AlterarPage({pageState, alunos=[], setAlunos}) {
       avaliacao.setCustomValidity('');
     }
 
-    var a = alunos.filter(function(a) {
-      return a[0] !== aluno[0];
-    });
-    setAlunos([aluno, ...a]);
-    window.history.back()    
+    var json = {nome : nome.value, cpf: cpf.value, avaliacao: avaliacao.value}
+    await api.put(`alteraraluno/${aluno[0]}`, json )
+    window.history.back()
   }
 
   function mascara() {

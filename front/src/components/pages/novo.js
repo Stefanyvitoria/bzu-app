@@ -2,16 +2,6 @@ import React from "react";
 import './novo.css';
 import api from '../../services/api.js'
 
-function maxIndexPlus1(alunos) {
-  let max = 0;
-  for (var i=0; i<alunos.length; i++) {
-    let aluno = alunos[i];
-    if ( aluno[0] > max) {
-      max = aluno[0]
-    }
-  }
-  return Number(max) + 1;
-}
 
 function searcCPF(alunos, cpf) {
   let aluno = null;
@@ -84,7 +74,6 @@ export default function NovoPage({pageState, alunos, setAlunos, x}) {
     var json = {nome : nome.value, cpf: cpf.value, avaliacao: avaliacao.value}
     await api.post('incluiraluno/', json )
     window.history.back()
-        
   }
 
   function mascara() {

@@ -1,5 +1,6 @@
 import React from "react";
 import './remover.css';
+import api from '../../services/api.js'
 
 function searchAluno(alunos) {
   let matricula = window.location.hash.split("=")[1];
@@ -22,12 +23,11 @@ export default function RemoverPage({pageState, alunos=[], setAlunos}) {
 
   const [aluno, setAluno] = React.useState(searchAluno(alunos));
 
-  function removerClick() {
-    var a = alunos.filter(function(a) {
-      return a[0] !== aluno[0];
-    });
-    setAlunos(a)
-    window.history.back()    
+  async function removerClick() {
+
+    var json = {nome : aluno[1], cpf: aluno[2], avaliacao: aluno[3]}
+    await api.delete(`deletaraluno/${aluno[0]}`, json )
+    window.history.back()   
   }
 
   return (
