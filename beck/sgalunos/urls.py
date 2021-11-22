@@ -9,5 +9,6 @@ urlpatterns = [
     path('alteraraluno/<int:matricula>', views.alterarAluno, name='alteraraluno'),
     path('deletaraluno/<int:matricula>', views.deletarAluno, name='deletaraluno'),
     path('consultaraluno/<int:matricula>', views.consultarAluno, name='consultaraluno'),
+    path('consultaralunonome/<str:nome>', views.consultarAlunoNome, name='consultaralunonome'),
 
 ]

@@ -43,3 +43,9 @@ def consultarAluno(request, matricula):
     a = Aluno.objects.get(pk=matricula)
     serializer = serializers.SGAlunosSerializers(a)
     return JsonResponse(serializer.data)
+
+@csrf_exempt
+def consultarAlunoNome(request, nome):
+    a = Aluno.objects.get(nome=nome)
+    serializer = serializers.SGAlunosSerializers(a)
+    return JsonResponse(serializer.data)
