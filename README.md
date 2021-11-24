@@ -6,10 +6,6 @@ Este repositório contém a solução do <b>Teste Desenvolvimento WEB (Front e B
 
 A solução consiste em uma api Rest de um sistema de gerenciamento de alunos e uma aplicação web que consume esta api.
 
-## Dados Candidato
-Nome: Stefany Vitória da Conceição izidio.
-
-Vaga: Estágio de FrontEnd.
 
 ## Orientações de como executar
 A solução foi desenvolvida para ser executada localmente.
